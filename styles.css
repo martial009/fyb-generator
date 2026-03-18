@@ -776,41 +776,6 @@ button {
 }
 
 /* ── Decorative: top-right red circles ── */
-.fc-deco-tr {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-.fc-deco-tr-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--red);
-}
-.fc-deco-tr-c1 {
-  width: 200px;
-  height: 200px;
-  top: -100px;
-  right: -100px;
-  opacity: 0.9;
-}
-.fc-deco-tr-c2 {
-  width: 120px;
-  height: 120px;
-  top: 60px;
-  right: -30px;
-  opacity: 0.75;
-  background: var(--red-dk);
-}
-.fc-deco-tr-c3 {
-  width: 70px;
-  height: 70px;
-  top: 145px;
-  right: 30px;
-  opacity: 0.55;
-}
-
 /* ── Main two-column flex body ── */
 .fc-body {
   flex: 1;
@@ -829,42 +794,7 @@ button {
   padding: 22px 16px 16px 22px;
 }
 
-/* Logo bar */
-.fc-logo-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.fc-logos-row {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  flex-shrink: 0;
-}
-.fc-logo {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
-}
-.fc-uni-text {
-  font-size: 0.52rem;
-  font-weight: 700;
-  color: #000000;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  line-height: 1.65;
-}
-
-/* Red separator line */
-.fc-logo-sep {
-  height: 2px;
-  background: linear-gradient(to right, var(--red), rgba(32, 37, 135, 0.15));
-  border-radius: 1px;
-  margin-bottom: 14px;
-}
-
-/* Photo card: white outer → red inner → photo */
+/* Photo card: white outer → coloured inner → photo */
 .fc-photo-card {
   background: #ffffff;
   border-radius: 16px;

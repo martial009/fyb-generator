@@ -543,8 +543,8 @@ redoBtn.addEventListener("click", () => {
 /* ═══════════════════════════════════════════════════════════
    FLYER SIZE — driven by background.png natural dimensions
 ═══════════════════════════════════════════════════════════ */
-let _flyerW = 800; // updated once background image loads
-let _flyerH = 1000;
+let _flyerW = 1024; // updated once background image loads
+let _flyerH = 1536;
 
 function scaleFlyerToViewport() {
   const container = document.getElementById("flyercontainer");
