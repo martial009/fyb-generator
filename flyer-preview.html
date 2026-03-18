@@ -1,0 +1,269 @@
+<!doctype html>
+<!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  FLYER LAYOUT PREVIEW — for positioning only             ║
+  ║                                                          ║
+  ║  HOW TO USE:                                             ║
+  ║  1. Open this file in Chrome                             ║
+  ║  2. Press F12 → open DevTools                            ║
+  ║  3. Click any element, adjust top/left/width/height      ║
+  ║     in the Styles panel until everything lines up        ║
+  ║     with the background zones                            ║
+  ║  4. Note down the values you changed                     ║
+  ║  5. Tell me the final values and I'll put them in the    ║
+  ║     main code                                            ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flyer Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px;
+        min-height: 100vh;
+      }
+
+      /* ── THE POSTER ─────────────────────────────────────── */
+      #flyercontainer {
+        width: 1024px;
+        height: 1536px;
+        position: relative; /* ALL children use absolute positioning */
+        background-image: url("images/background.png");
+        background-size: 100% 100%;
+        background-position: center;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        flex-shrink: 0;
+      }
+
+      /* ════════════════════════════════════════════════════
+       PHOTO
+       ↓ Adjust top / left / width / height to fit the
+         photo zone on the background
+    ════════════════════════════════════════════════════ */
+      .fc-photo-card {
+        position: absolute;
+        top: 447px;
+        left: 86px;
+        width: 476px;
+        height: 550px;
+        background: #fff;
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+      }
+      .fc-photo-bg {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background: #202587;
+        overflow: hidden;
+      }
+      .fc-photo-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+
+      /* ════════════════════════════════════════════════════
+       NAME + NICKNAME
+       ↓ Adjust top / left to sit below the photo,
+         or wherever the background has a name zone
+    ════════════════════════════════════════════════════ */
+      .fc-identity {
+        position: absolute;
+        top: 1023px;
+        left: 86px;
+        width: 476px;
+        text-align: center;
+      }
+      .fc-name {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+      }
+      .fc-nickname {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #a2ddee;
+        font-style: italic;
+        margin-top: 4px;
+      }
+      .fc-meta-list {
+        margin-top: 10px;
+      }
+      .fc-meta-item {
+        font-size: 1.6rem;
+        color: #e8e8e8;
+        line-height: 1.8;
+        display: flex;
+        gap: 6px;
+      }
+      .fc-ml {
+        font-weight: 700;
+        color: #e7e7ed;
+        flex-shrink: 0;
+      }
+      .fc-mv {
+        margin-left: 8px;
+        font-weight: 400;
+      }
+
+      /*  
+         the details zone on the background
+    ════════════════════════════════════════════════════ */
+      .fc-details {
+        position: absolute;
+        top: 431px;
+        right: 40px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .fc-di {
+        padding: 7px 0;
+        border-bottom: 1px solid rgba(32, 37, 135, 0.12);
+      }
+      .fc-dl {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #202587;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+      .fc-dv {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #000;
+        margin-top: 1px;
+      }
+      .fc-dv--quote {
+        font-style: italic;
+        color: #202587;
+      }
+
+      /* ════════════════════════════════════════════════════
+       BOTTOM RULE (decorative line at bottom)
+       ↓ Adjust height / colours as needed
+    ════════════════════════════════════════════════════ */
+      .fc-bottom-rule {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(to right, #202587, #a2ddee, #202587);
+      }
+
+      /* ── Helper outline so you can see element bounds ── */
+      .debug * {
+        outline: 1px dashed rgba(255, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    TIP: add class="debug" to #flyercontainer to see
+    red dashed outlines around every element:
+    <div id="flyercontainer" class="debug">
+  -->
+    <div id="flyercontainer">
+      <!-- PHOTO -->
+      <div class="fc-photo-card">
+        <div class="fc-photo-bg">
+          <!-- swap src to a real photo to test sizing -->
+          <img src="" alt="Student Photo" />
+        </div>
+      </div>
+
+      <!-- NAME + NICKNAME + META -->
+      <div class="fc-identity">
+        <h2 class="fc-name">JOHN DOE STUDENT</h2>
+        <p class="fc-nickname">"Johnny"</p>
+        <div class="fc-meta-list">
+          <p class="fc-meta-item">
+            <span class="fc-ml">SOCIAL:</span
+            ><span class="fc-mv">@johndoe</span>
+          </p>
+          <p class="fc-meta-item">
+            <span class="fc-ml">DOB:</span><span class="fc-mv">13th Septenber</span>
+          </p>
+          <p class="fc-meta-item">
+            <span class="fc-ml">PHONE:</span
+            ><span class="fc-mv">08012345678</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- DETAILS LIST -->
+      <div class="fc-details">
+        <div class="fc-di">
+          <p class="fc-dl">STATE OF ORIGIN:</p>
+          <p class="fc-dv">Ondo State</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">RELATIONSHIP STATUS:</p>
+          <p class="fc-dv">Single &amp; Focused</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">HOBBY:</p>
+          <p class="fc-dv">Reading, Coding, Music</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">FAVOURITE COURSE:</p>
+          <p class="fc-dv">ECO 301</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">MOST CHALLENGING COURSE:</p>
+          <p class="fc-dv">ECO 402</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">FAVOURITE LECTURER:</p>
+          <p class="fc-dv">Dr. Adeyemi</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">MOST CHALLENGING LEVEL:</p>
+          <p class="fc-dv">300 Level</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">IF NOT ECONOMICS, THEN WHAT?</p>
+          <p class="fc-dv">Computer Science</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">AFTER DEGREE, WHAT'S NEXT?</p>
+          <p class="fc-dv">Masters, then Entrepreneurship</p>
+        </div>
+        <div class="fc-di">
+          <p class="fc-dl">FAVOURITE QUOTE:</p>
+          <p class="fc-dv fc-dv--quote">
+            "The harder you work, the luckier you get."
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTTOM RULE -->
+      <div class="fc-bottom-rule"></div>
+    </div>
+    <!-- /#flyercontainer -->
+  </body>
+</html>

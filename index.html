@@ -474,98 +474,78 @@
         <!-- THE POSTER (captured by html2canvas) -->
         <div class="flyer-scroll-wrap">
           <div id="flyercontainer">
-            <!-- ── Two-column flex body ── -->
-            <div class="fc-body">
-              <!-- ══ LEFT COLUMN ══ -->
-              <div class="fc-left">
-                <!-- Photo card: white frame → coloured bg → user photo -->
-                <div class="fc-photo-card">
-                  <div class="fc-photo-bg">
-                    <img id="fcPhoto" src="" alt="Student Photo" />
-                  </div>
-                </div>
-
-                <!-- Identity -->
-                <div class="fc-identity">
-                  <h2 class="fc-name" id="fcName">STUDENT NAME</h2>
-                  <p class="fc-nickname" id="fcNickname">Nickname</p>
-                  <div class="fc-meta-list">
-                    <p class="fc-meta-item">
-                      <span class="fc-ml">SOCIAL HANDLE:</span>
-                      <span class="fc-mv" id="fcSocial">—</span>
-                    </p>
-                    <p class="fc-meta-item">
-                      <span class="fc-ml">DATE OF BIRTH:</span>
-                      <span class="fc-mv" id="fcDob">—</span>
-                    </p>
-                    <p class="fc-meta-item">
-                      <span class="fc-ml">PHONE:</span>
-                      <span class="fc-mv" id="fcPhone">—</span>
-                    </p>
-                  </div>
-                </div>
+            <!-- Photo -->
+            <div class="fc-photo-card">
+              <div class="fc-photo-bg">
+                <img id="fcPhoto" src="" alt="Student Photo" />
               </div>
-              <!-- /.fc-left -->
-
-              <!-- Vertical red divider -->
-              <div class="fc-vdiv"></div>
-
-              <!-- ══ RIGHT COLUMN ══ -->
-              <div class="fc-right">
-                <!-- "Meet Our FYB" heading -->
-                <div class="fc-meet-hd">
-                  <span class="fc-meet-our">Meet Our</span>
-                </div>
-
-                <!-- Stacked details -->
-                <div class="fc-details">
-                  <div class="fc-di">
-                    <p class="fc-dl">STATE OF ORIGIN:</p>
-                    <p class="fc-dv" id="fcState">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">RELATIONSHIP STATUS:</p>
-                    <p class="fc-dv" id="fcRelationship">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">HOBBY:</p>
-                    <p class="fc-dv" id="fcHobby">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">FAVOURITE COURSE:</p>
-                    <p class="fc-dv" id="fcFavCourse">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">MOST CHALLENGING COURSE:</p>
-                    <p class="fc-dv" id="fcHardCourse">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">FAVOURITE LECTURER:</p>
-                    <p class="fc-dv" id="fcFavLecturer">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">MOST CHALLENGING LEVEL:</p>
-                    <p class="fc-dv" id="fcHardLevel">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">IF NOT ECONOMICS, THEN WHAT?</p>
-                    <p class="fc-dv" id="fcAltDept">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">AFTER DEGREE, WHAT'S NEXT?</p>
-                    <p class="fc-dv" id="fcAfterDegree">—</p>
-                  </div>
-                  <div class="fc-di">
-                    <p class="fc-dl">FAVOURITE QUOTE:</p>
-                    <p class="fc-dv fc-dv--quote" id="fcQuote">—</p>
-                  </div>
-                </div>
-              </div>
-              <!-- /.fc-right -->
             </div>
-            <!-- /.fc-body -->
 
-            <!-- Bottom red decorative rule -->
+            <!-- Name + Nickname + Meta -->
+            <div class="fc-identity">
+              <h2 class="fc-name" id="fcName">STUDENT NAME</h2>
+              <p class="fc-nickname" id="fcNickname"></p>
+              <div class="fc-meta-list">
+                <p class="fc-meta-item">
+                  <span class="fc-ml">SOCIAL:</span>
+                  <span class="fc-mv" id="fcSocial">—</span>
+                </p>
+                <p class="fc-meta-item">
+                  <span class="fc-ml">DOB:</span>
+                  <span class="fc-mv" id="fcDob">—</span>
+                </p>
+                <p class="fc-meta-item">
+                  <span class="fc-ml">PHONE:</span>
+                  <span class="fc-mv" id="fcPhone">—</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Details list -->
+            <div class="fc-details">
+              <div class="fc-di">
+                <p class="fc-dl">STATE OF ORIGIN:</p>
+                <p class="fc-dv" id="fcState">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">RELATIONSHIP STATUS:</p>
+                <p class="fc-dv" id="fcRelationship">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">HOBBY:</p>
+                <p class="fc-dv" id="fcHobby">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">FAVOURITE COURSE:</p>
+                <p class="fc-dv" id="fcFavCourse">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">MOST CHALLENGING COURSE:</p>
+                <p class="fc-dv" id="fcHardCourse">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">FAVOURITE LECTURER:</p>
+                <p class="fc-dv" id="fcFavLecturer">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">MOST CHALLENGING LEVEL:</p>
+                <p class="fc-dv" id="fcHardLevel">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">IF NOT ECONOMICS, THEN WHAT?</p>
+                <p class="fc-dv" id="fcAltDept">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">AFTER DEGREE, WHAT'S NEXT?</p>
+                <p class="fc-dv" id="fcAfterDegree">—</p>
+              </div>
+              <div class="fc-di">
+                <p class="fc-dl">FAVOURITE QUOTE:</p>
+                <p class="fc-dv fc-dv--quote" id="fcQuote">—</p>
+              </div>
+            </div>
+
+            <!-- Bottom decorative rule -->
             <div class="fc-bottom-rule"></div>
           </div>
           <!-- /#flyercontainer -->
