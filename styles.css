@@ -5,15 +5,15 @@
 
 /* ── Variables ─────────────────────────────────────────── */
 :root {
-  --red: #c41230;
-  --red-dk: #8b0000;
-  --red-lt: #e8193e;
-  --red-pale: #fff0f0;
-  --gold: #f5c518;
+  --red: #202587;
+  --red-dk: #161a6b;
+  --red-lt: #a2ddee;
+  --red-pale: #e8f7fb;
+  --gold: #a2ddee;
   --white: #ffffff;
-  --dark: #09090f;
-  --dark2: #111118;
-  --dark3: #1a1a24;
+  --dark: #000000;
+  --dark2: #0a0a0a;
+  --dark3: #141414;
   --border: rgba(255, 255, 255, 0.1);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --tr: all 0.28s var(--ease);
@@ -57,17 +57,17 @@ button {
   background:
     radial-gradient(
       ellipse at 10% 40%,
-      rgba(196, 18, 48, 0.16) 0%,
+      rgba(32, 37, 135, 0.16) 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 90% 10%,
-      rgba(139, 0, 0, 0.1) 0%,
+      rgba(22, 26, 94, 0.1) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 50% 95%,
-      rgba(196, 18, 48, 0.08) 0%,
+      rgba(32, 37, 135, 0.08) 0%,
       transparent 45%
     );
 }
@@ -82,7 +82,7 @@ button {
   position: absolute;
   bottom: -16px;
   border-radius: 50%;
-  background: rgba(196, 18, 48, 0.4);
+  background: rgba(32, 37, 135, 0.4);
   animation: floatUp linear infinite;
 }
 .particles li:nth-child(1) {
@@ -219,7 +219,7 @@ button {
     var(--red-lt) 100%
   );
   padding: 16px 32px;
-  box-shadow: 0 4px 30px rgba(196, 18, 48, 0.5);
+  box-shadow: 0 4px 30px rgba(32, 37, 135, 0.5);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -303,12 +303,12 @@ button {
 @keyframes glowPulse {
   0%,
   100% {
-    text-shadow: 0 0 16px rgba(196, 18, 48, 0.3);
+    text-shadow: 0 0 16px rgba(32, 37, 135, 0.3);
   }
   50% {
     text-shadow:
-      0 0 36px rgba(196, 18, 48, 0.7),
-      0 0 60px rgba(196, 18, 48, 0.3);
+      0 0 36px rgba(32, 37, 135, 0.7),
+      0 0 60px rgba(32, 37, 135, 0.3);
   }
 }
 .intro-card h2 {
@@ -356,7 +356,7 @@ button {
   font-weight: 800;
   color: var(--white);
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 18px rgba(196, 18, 48, 0.45);
+  box-shadow: 0 4px 18px rgba(32, 37, 135, 0.45);
 }
 .fg-title {
   font-size: 1rem;
@@ -421,8 +421,8 @@ button {
 .field-wrap select:focus,
 .field-wrap textarea:focus {
   border-color: var(--red);
-  background: rgba(196, 18, 48, 0.08);
-  box-shadow: 0 0 0 3px rgba(196, 18, 48, 0.18);
+  background: rgba(32, 37, 135, 0.08);
+  box-shadow: 0 0 0 3px rgba(32, 37, 135, 0.18);
 }
 .field-wrap input::placeholder,
 .field-wrap textarea::placeholder {
@@ -459,19 +459,19 @@ button {
 /* ── Upload Zone ─────────────────────────────────────────── */
 .upload-zone {
   position: relative;
-  border: 2px dashed rgba(196, 18, 48, 0.35);
+  border: 2px dashed rgba(32, 37, 135, 0.35);
   border-radius: 12px;
   padding: 40px 24px;
   text-align: center;
   cursor: pointer;
   transition: var(--tr);
-  background: rgba(196, 18, 48, 0.03);
+  background: rgba(32, 37, 135, 0.03);
   overflow: hidden;
 }
 .upload-zone:hover,
 .upload-zone.hovering {
   border-color: var(--red);
-  background: rgba(196, 18, 48, 0.08);
+  background: rgba(32, 37, 135, 0.08);
   transform: translateY(-2px);
 }
 .file-input {
@@ -519,7 +519,7 @@ button {
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--red);
-  box-shadow: 0 0 20px rgba(196, 18, 48, 0.38);
+  box-shadow: 0 0 20px rgba(32, 37, 135, 0.38);
 }
 .upload-preview-info p {
   color: rgba(255, 255, 255, 0.6);
@@ -565,7 +565,7 @@ button {
   gap: 12px;
   letter-spacing: 0.6px;
   transition: var(--tr);
-  box-shadow: 0 8px 30px rgba(196, 18, 48, 0.45);
+  box-shadow: 0 8px 30px rgba(32, 37, 135, 0.45);
   position: relative;
   overflow: hidden;
 }
@@ -589,7 +589,7 @@ button {
 }
 .btn-generate:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 46px rgba(196, 18, 48, 0.65);
+  box-shadow: 0 16px 46px rgba(32, 37, 135, 0.65);
 }
 .btn-generate:active {
   transform: translateY(-1px);
@@ -735,7 +735,7 @@ button {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 12px;
-  box-shadow: 0 4px 16px rgba(196, 18, 48, 0.4);
+  box-shadow: 0 4px 16px rgba(32, 37, 135, 0.4);
 }
 .flyer-section-hd h2 {
   font-family: "Playfair Display", serif;
@@ -762,7 +762,7 @@ button {
 ══════════════════════════════════════════════════════════ */
 #flyercontainer {
   /* Width & height are set dynamically from the background image's natural size */
-  background-color: #f8f0e3; /* cream fallback */
+  background-color: #fef8e6; /* cream — matches design */
   background-image: url("images/background.png");
   background-size: 100% 100%;
   background-position: center center;
@@ -850,7 +850,7 @@ button {
 .fc-uni-text {
   font-size: 0.52rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 0.4px;
   line-height: 1.65;
@@ -859,7 +859,7 @@ button {
 /* Red separator line */
 .fc-logo-sep {
   height: 2px;
-  background: linear-gradient(to right, var(--red), rgba(196, 18, 48, 0.15));
+  background: linear-gradient(to right, var(--red), rgba(32, 37, 135, 0.15));
   border-radius: 1px;
   margin-bottom: 14px;
 }
@@ -895,7 +895,7 @@ button {
 .fc-name {
   font-size: 1.05rem;
   font-weight: 900;
-  color: #1a1a1a;
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 0.7px;
   line-height: 1.2;
@@ -909,7 +909,7 @@ button {
 }
 .fc-meta-item {
   font-size: 0.73rem;
-  color: #1a1a1a;
+  color: #000000;
   text-align: left;
 }
 .fc-ml {
@@ -920,7 +920,7 @@ button {
 }
 .fc-mv {
   font-weight: 600;
-  color: #1a1a1a;
+  color: #000000;
 }
 
 /* ═══════════════════════
@@ -971,7 +971,7 @@ button {
 }
 .fc-di {
   padding: 6px 0;
-  border-bottom: 1px solid rgba(196, 18, 48, 0.12);
+  border-bottom: 1px solid rgba(32, 37, 135, 0.12);
 }
 .fc-di:last-child {
   border-bottom: none;
@@ -987,7 +987,7 @@ button {
 .fc-dv {
   font-size: 0.76rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #000000;
   text-transform: uppercase;
   line-height: 1.35;
 }
@@ -1037,12 +1037,12 @@ button {
   align-items: center;
   gap: 10px;
   transition: var(--tr);
-  box-shadow: 0 8px 26px rgba(196, 18, 48, 0.45);
+  box-shadow: 0 8px 26px rgba(32, 37, 135, 0.45);
   letter-spacing: 0.4px;
 }
 .btn-download:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 38px rgba(196, 18, 48, 0.65);
+  box-shadow: 0 14px 38px rgba(32, 37, 135, 0.65);
 }
 .btn-download:disabled {
   opacity: 0.65;
@@ -1145,9 +1145,9 @@ button {
   justify-content: center;
 }
 .btn-crop-open {
-  background: rgba(196, 18, 48, 0.18);
+  background: rgba(32, 37, 135, 0.18);
   color: var(--red-lt);
-  border: 1px solid rgba(196, 18, 48, 0.35);
+  border: 1px solid rgba(32, 37, 135, 0.35);
   padding: 7px 16px;
   border-radius: 8px;
   font-size: 0.8rem;
@@ -1156,7 +1156,7 @@ button {
   transition: var(--tr);
 }
 .btn-crop-open:hover {
-  background: rgba(196, 18, 48, 0.32);
+  background: rgba(32, 37, 135, 0.32);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -1281,7 +1281,7 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: var(--tr);
-  box-shadow: 0 4px 16px rgba(196, 18, 48, 0.4);
+  box-shadow: 0 4px 16px rgba(32, 37, 135, 0.4);
 }
 .btn-crop-apply:hover {
   opacity: 0.9;

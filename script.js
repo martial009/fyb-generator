@@ -263,7 +263,7 @@ function showToast(msg) {
     bottom: "30px",
     left: "50%",
     transform: "translateX(-50%) translateY(20px)",
-    background: "rgba(196,18,48,.95)",
+    background: "rgba(32,37,135,.95)",
     color: "#fff",
     padding: "12px 24px",
     borderRadius: "8px",
@@ -494,7 +494,7 @@ downloadBtn.addEventListener("click", async () => {
       scale: 2,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: "#f8f0e3",
+      backgroundColor: "#fef8e6",
       logging: false,
       imageTimeout: 20000,
     });
