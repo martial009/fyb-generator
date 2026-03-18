@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FYB Generator — Dept. of Economics | AAUA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── Animated Background ─────────────────────────────── -->
+    <div class="bg-overlay"></div>
+    <ul class="particles" aria-hidden="true">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <!-- ── Site Header ──────────────────────────────────────── -->
+    <header class="site-header">
+      <div class="header-inner">
+        <img
+          src="images/schoollogo.jpg"
+          alt="AAUA Logo"
+          class="header-logo"
+          onerror="this.style.visibility = 'hidden'"
+        />
+        <div class="header-text">
+          <h1 class="site-title">FYB Generator</h1>
+          <p class="site-subtitle">
+            Department of Economics &bull; Adekunle Ajasin University, Akungba
+            Akoko
+          </p>
+        </div>
+        <img
+          src="images/deptlogo.jpg"
+          alt="Dept. of Economics Logo"
+          class="header-logo"
+          onerror="this.style.visibility = 'hidden'"
+        />
+      </div>
+    </header>
+
+    <!-- ── Crop Modal ──────────────────────────────────────── -->
+    <div class="crop-modal" id="cropModal" aria-hidden="true">
+      <div class="crop-modal-inner">
+        <div class="crop-modal-hd">
+          <h3><i class="fas fa-crop-alt"></i> Crop Your Photo</h3>
+          <p>Drag to reposition &bull; Pinch / scroll to zoom</p>
+        </div>
+        <div class="crop-viewport" id="cropViewport">
+          <canvas id="cropCanvas"></canvas>
+        </div>
+        <div class="crop-zoom-row">
+          <i class="fas fa-search-minus"></i>
+          <input type="range" id="cropZoom" min="10" max="300" value="100" />
+          <i class="fas fa-search-plus"></i>
+        </div>
+        <div class="crop-actions">
+          <button class="btn-crop-cancel" id="cropCancel">Cancel</button>
+          <button class="btn-crop-apply" id="cropApply">
+            <i class="fas fa-check"></i> Apply Crop
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <main class="main-content">
+      <!-- Collapsible form area (hidden once flyer is ready) -->
+      <div id="formArea">
+        <!-- Intro Card -->
+        <div class="intro-card reveal">
+          <div class="intro-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h2>Create Your Final Year Biography</h2>
+          <p>
+            Fill in the form below and generate a beautiful, shareable flyer
+            that celebrates your academic journey with the Department of
+            Economics, AAUA.
+          </p>
+        </div>
+
+        <!-- ── Form Section ─────────────────────────────────── -->
+        <section class="form-section reveal">
+          <form id="fybForm" novalidate autocomplete="off">
+            <!-- ── Personal Information ── -->
+            <div class="fg-header">
+              <span class="fg-num">01</span>
+              <div>
+                <p class="fg-title">Personal Information</p>
+                <p class="fg-sub">Tell us a bit about yourself</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field-wrap">
+                <label for="name">Full Name <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="e.g. Adewale Balogun"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="nickname"
+                  >Nickname <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="nickname"
+                  name="nickname"
+                  placeholder="e.g. The Professor"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="dob"
+                  >Date of Birth (DD/MM) <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  placeholder="e.g. 23/01"
+                  maxlength="5"
+                  pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])$"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="phone"
+                  >Phone Number <span class="req">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="e.g. 08012345678"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="relationship"
+                  >Relationship Status <span class="req">*</span></label
+                >
+                <select id="relationship" name="relationship" required>
+                  <option value="" disabled selected>— Select status —</option>
+                  <option>Single</option>
+                  <option>Taken</option>
+                  <option>Married</option>
+                  <option>Engaged</option>
+                  <option>It's Complicated</option>
+                  <option>Prefer Not to Say</option>
+                </select>
+              </div>
+
+              <div class="field-wrap">
+                <label for="social"
+                  >Social Media Handle <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="social"
+                  name="social"
+                  placeholder="e.g. @your_handle"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="state"
+                  >State of Origin <span class="req">*</span></label
+                >
+                <select id="state" name="state" required>
+                  <option value="" disabled selected>— Select state —</option>
+                  <option>Abia</option>
+                  <option>Adamawa</option>
+                  <option>Akwa Ibom</option>
+                  <option>Anambra</option>
+                  <option>Bauchi</option>
+                  <option>Bayelsa</option>
+                  <option>Benue</option>
+                  <option>Borno</option>
+                  <option>Cross River</option>
+                  <option>Delta</option>
+                  <option>Ebonyi</option>
+                  <option>Edo</option>
+                  <option>Ekiti</option>
+                  <option>Enugu</option>
+                  <option>FCT – Abuja</option>
+                  <option>Gombe</option>
+                  <option>Imo</option>
+                  <option>Jigawa</option>
+                  <option>Kaduna</option>
+                  <option>Kano</option>
+                  <option>Katsina</option>
+                  <option>Kebbi</option>
+                  <option>Kogi</option>
+                  <option>Kwara</option>
+                  <option>Lagos</option>
+                  <option>Nasarawa</option>
+                  <option>Niger</option>
+                  <option>Ogun</option>
+                  <option>Ondo</option>
+                  <option>Osun</option>
+                  <option>Oyo</option>
+                  <option>Plateau</option>
+                  <option>Rivers</option>
+                  <option>Sokoto</option>
+                  <option>Taraba</option>
+                  <option>Yobe</option>
+                  <option>Zamfara</option>
+                </select>
+              </div>
+            </div>
+            <!-- /.form-grid -->
+
+            <!-- ── Academic Profile ── -->
+            <div class="fg-header" style="margin-top: 36px">
+              <span class="fg-num">02</span>
+              <div>
+                <p class="fg-title">Academic Profile</p>
+                <p class="fg-sub">Your journey through Economics</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field-wrap">
+                <label for="hobby">Hobby <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="hobby"
+                  name="hobby"
+                  placeholder="e.g. Reading, Music, Football"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="favCourse"
+                  >Favourite Course <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="favCourse"
+                  name="favCourse"
+                  placeholder="e.g. Eco 101"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="hardCourse"
+                  >Most Challenging Course <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="hardCourse"
+                  name="hardCourse"
+                  placeholder="e.g. ECO 102"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="favLecturer"
+                  >Favourite Lecturer <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="favLecturer"
+                  name="favLecturer"
+                  placeholder="e.g. Dr. Badmus"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap">
+                <label for="hardLevel"
+                  >Most Challenging Level <span class="req">*</span></label
+                >
+                <select id="hardLevel" name="hardLevel" required>
+                  <option value="" disabled selected>— Select level —</option>
+                  <option>100 Level</option>
+                  <option>200 Level</option>
+                  <option>300 Level</option>
+                  <option>400 Level</option>
+                  <option>500 Level</option>
+                </select>
+              </div>
+
+              <div class="field-wrap">
+                <label for="altDept"
+                  >If Not Economics, Then What?
+                  <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="altDept"
+                  name="altDept"
+                  placeholder="e.g. Computer Science"
+                  required
+                />
+              </div>
+
+              <div class="field-wrap field-wrap--full">
+                <label for="afterDegree"
+                  >After Your Degree, What's Next?
+                  <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="afterDegree"
+                  name="afterDegree"
+                  placeholder="e.g. Masters degree, NYSC, Start a business…"
+                  required
+                />
+              </div>
+            </div>
+            <!-- /.form-grid -->
+
+            <!-- ── Your Words ── -->
+            <div class="fg-header" style="margin-top: 36px">
+              <span class="fg-num">03</span>
+              <div>
+                <p class="fg-title">Your Words</p>
+                <p class="fg-sub">Leave a mark to remember you by</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field-wrap field-wrap--full">
+                <label for="quote"
+                  >Favourite Quote <span class="req">*</span></label
+                >
+                <textarea
+                  id="quote"
+                  name="quote"
+                  rows="3"
+                  placeholder="Share a quote that defines your journey…"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <!-- /.form-grid -->
+
+            <!-- ── Photo Upload ── -->
+            <div class="fg-header" style="margin-top: 36px">
+              <span class="fg-num">04</span>
+              <div>
+                <p class="fg-title">Your Photo</p>
+                <p class="fg-sub">A great portrait makes a great flyer</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field-wrap field-wrap--full">
+                <label>Upload Your Picture <span class="req">*</span></label>
+                <div class="upload-zone" id="uploadZone">
+                  <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    class="file-input"
+                  />
+                  <div class="upload-idle" id="uploadIdle">
+                    <div class="upload-icon-wrap">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <p class="upload-headline">Drag &amp; drop your photo</p>
+                    <p class="upload-sub">
+                      or <span class="upload-link">browse files</span>
+                    </p>
+                    <small>JPG, PNG, WEBP &bull; Max 5 MB</small>
+                  </div>
+                  <div
+                    class="upload-done"
+                    id="uploadDone"
+                    style="display: none"
+                  >
+                    <div class="upload-preview-wrap">
+                      <img id="previewImg" src="" alt="Preview" />
+                    </div>
+                    <div class="upload-preview-info">
+                      <p id="previewName"></p>
+                      <div class="upload-done-btns">
+                        <button
+                          type="button"
+                          id="cropBtn"
+                          class="btn-crop-open"
+                        >
+                          <i class="fas fa-crop-alt"></i> Crop
+                        </button>
+                        <button
+                          type="button"
+                          id="removePhoto"
+                          class="btn-remove"
+                        >
+                          <i class="fas fa-times"></i> Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.form-grid -->
+
+            <div class="form-actions">
+              <button type="submit" class="btn-generate" id="generateBtn">
+                <span class="btn-icon"><i class="fas fa-magic"></i></span>
+                <span class="btn-text">Generate My Flyer</span>
+                <span class="btn-arrow"
+                  ><i class="fas fa-arrow-right"></i
+                ></span>
+              </button>
+            </div>
+          </form>
+        </section>
+        <!-- /.form-section -->
+      </div>
+      <!-- /#formArea -->
+
+      <!-- ── Loading Overlay ──────────────────────────────── -->
+      <div class="loading-overlay" id="loadingOverlay" aria-hidden="true">
+        <div class="loader-box">
+          <div class="loader-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+            <div class="ring-dot"></div>
+          </div>
+          <h3 class="loader-heading">Creating Your Flyer</h3>
+          <p class="loader-status" id="loaderStatus">Gathering your details…</p>
+          <div class="loader-track">
+            <div class="loader-fill" id="loaderFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Flyer Output ──────────────────────────────────── -->
+      <section class="flyer-section" id="flyerSection" style="display: none">
+        <div class="flyer-section-hd reveal">
+          <div class="fsh-badge">✦ READY</div>
+          <h2>Your FYB Flyer is Ready!</h2>
+          <p>Preview below, then download as a high-resolution image.</p>
+        </div>
+
+        <!-- THE POSTER (captured by html2canvas) -->
+        <div class="flyer-scroll-wrap">
+          <div id="flyercontainer">
+            <!-- Decorative: top-right red circles -->
+            <div class="fc-deco-tr" aria-hidden="true">
+              <div class="fc-deco-tr-circle fc-deco-tr-c1"></div>
+              <div class="fc-deco-tr-circle fc-deco-tr-c2"></div>
+              <div class="fc-deco-tr-circle fc-deco-tr-c3"></div>
+            </div>
+
+            <!-- ── Two-column flex body ── -->
+            <div class="fc-body">
+              <!-- ══ LEFT COLUMN ══ -->
+              <div class="fc-left">
+                <!-- Logos block -->
+                <div class="fc-logo-bar">
+                  <div class="fc-logos-row">
+                    <img
+                      src="images/schoollogo.jpg"
+                      alt="AAUA"
+                      class="fc-logo"
+                      onerror="this.style.display = 'none'"
+                    />
+                    <img
+                      src="images/deptlogo.jpg"
+                      alt="Dept"
+                      class="fc-logo"
+                      onerror="this.style.display = 'none'"
+                    />
+                  </div>
+                  <div class="fc-uni-text">
+                    <p>ADEKUNLE AJASIN UNIVERSITY</p>
+                    <p>AKUNGBA AKOKO</p>
+                    <p>DEPT. OF ECONOMICS</p>
+                  </div>
+                </div>
+
+                <!-- Thin red separator -->
+                <div class="fc-logo-sep"></div>
+
+                <!-- Photo card: white frame → red bg → user photo -->
+                <div class="fc-photo-card">
+                  <div class="fc-photo-bg">
+                    <img id="fcPhoto" src="" alt="Student Photo" />
+                  </div>
+                </div>
+
+                <!-- Identity -->
+                <div class="fc-identity">
+                  <h2 class="fc-name" id="fcName">STUDENT NAME</h2>
+                  <p class="fc-nickname" id="fcNickname">Nickname</p>
+                  <div class="fc-meta-list">
+                    <p class="fc-meta-item">
+                      <span class="fc-ml">SOCIAL HANDLE:</span>
+                      <span class="fc-mv" id="fcSocial">—</span>
+                    </p>
+                    <p class="fc-meta-item">
+                      <span class="fc-ml">DATE OF BIRTH:</span>
+                      <span class="fc-mv" id="fcDob">—</span>
+                    </p>
+                    <p class="fc-meta-item">
+                      <span class="fc-ml">PHONE:</span>
+                      <span class="fc-mv" id="fcPhone">—</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- /.fc-left -->
+
+              <!-- Vertical red divider -->
+              <div class="fc-vdiv"></div>
+
+              <!-- ══ RIGHT COLUMN ══ -->
+              <div class="fc-right">
+                <!-- "Meet Our FYB" heading -->
+                <div class="fc-meet-hd">
+                  <span class="fc-meet-our">Meet Our</span>
+                </div>
+
+                <!-- Stacked details -->
+                <div class="fc-details">
+                  <div class="fc-di">
+                    <p class="fc-dl">STATE OF ORIGIN:</p>
+                    <p class="fc-dv" id="fcState">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">RELATIONSHIP STATUS:</p>
+                    <p class="fc-dv" id="fcRelationship">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">HOBBY:</p>
+                    <p class="fc-dv" id="fcHobby">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">FAVOURITE COURSE:</p>
+                    <p class="fc-dv" id="fcFavCourse">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">MOST CHALLENGING COURSE:</p>
+                    <p class="fc-dv" id="fcHardCourse">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">FAVOURITE LECTURER:</p>
+                    <p class="fc-dv" id="fcFavLecturer">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">MOST CHALLENGING LEVEL:</p>
+                    <p class="fc-dv" id="fcHardLevel">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">IF NOT ECONOMICS, THEN WHAT?</p>
+                    <p class="fc-dv" id="fcAltDept">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">AFTER DEGREE, WHAT'S NEXT?</p>
+                    <p class="fc-dv" id="fcAfterDegree">—</p>
+                  </div>
+                  <div class="fc-di">
+                    <p class="fc-dl">FAVOURITE QUOTE:</p>
+                    <p class="fc-dv fc-dv--quote" id="fcQuote">—</p>
+                  </div>
+                </div>
+              </div>
+              <!-- /.fc-right -->
+            </div>
+            <!-- /.fc-body -->
+
+            <!-- Bottom red decorative rule -->
+            <div class="fc-bottom-rule"></div>
+          </div>
+          <!-- /#flyercontainer -->
+        </div>
+        <!-- /.flyer-scroll-wrap -->
+
+        <!-- Action buttons -->
+        <div class="flyer-actions reveal">
+          <button class="btn-download" id="downloadBtn">
+            <i class="fas fa-download"></i>
+            <span>Download Flyer</span>
+          </button>
+          <button class="btn-redo" id="redoBtn">
+            <i class="fas fa-redo"></i>
+            <span>Edit &amp; Regenerate</span>
+          </button>
+        </div>
+      </section>
+      <!-- /.flyer-section -->
+    </main>
+    <!-- /.main-content -->
+
+    <!-- ── Site Footer ──────────────────────────────────────── -->
+    <footer class="site-footer">
+      <p>Developed by <span class="dev-credit">martialdeecode</span></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
